@@ -32,3 +32,8 @@ df2$month = factor(df2$month, levels = c("January","February","March","April",
   ggplot(aes(x = day, y = total))+
   geom_bar(stat = "identity")+
   facet_grid(year~month, scale = "free")
+ 
+ df2 %>%
+   ggplot(aes(x = lubridate::date(Start.Time),
+          y = Duration)) + 
+   geom_line()
